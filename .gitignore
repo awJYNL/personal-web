@@ -1,0 +1,20 @@
+# Logs
+*.log
+proxy-*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Node modules (if used in future)
+node_modules/
+
+# Environment files
+.env
+.env.local

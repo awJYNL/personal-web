@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="个人品牌网站 - 展示我的作品与故事">
+    <title>我的个人空间 ✨</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 粒子效果画布 -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-brand">✨ My Space</div>
+        <ul class="nav-links">
+            <li><a href="#about">关于我</a></li>
+            <li><a href="#gallery">图片展示</a></li>
+            <li><a href="#articles">文章</a></li>
+        </ul>
+    </nav>
+
+    <!-- 主要内容区 -->
+    <main>
+        <!-- 个人介绍区域 -->
+        <section id="about" class="section about-section">
+            <div class="about-container">
+                <div class="avatar-wrapper">
+                    <!-- 占位图: avatar.png - 请替换为您的头像图片 (建议尺寸: 200x200) -->
+                    <img src="image/avatar.png" alt="头像" class="avatar">
+                    <div class="avatar-ring"></div>
+                </div>
+                <div class="about-content">
+                    <h1 class="greeting">你好，我是 <span class="highlight">您的名字</span> 👋</h1>
+                    <p class="tagline">✨ 在这里写下您的个人标语或座右铭 ✨</p>
+                    <p class="bio">
+                        这里是您的个人简介。可以介绍您的职业、爱好、技能或者任何您想分享的内容。
+                        让访客更好地了解您是谁，以及您热爱什么。
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-btn">🐦 Twitter</a>
+                        <a href="#" class="social-btn">📧 Email</a>
+                        <a href="#" class="social-btn">💼 GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 图片展示区域 -->
+        <section id="gallery" class="section gallery-section">
+            <h2 class="section-title">📸 图片展示</h2>
+            <p class="section-subtitle">记录生活中的美好瞬间</p>
+            <div class="gallery-grid">
+                <!-- 占位图: gallery-1.jpg - 请替换为您的展示图片1 (建议尺寸: 400x300) -->
+                <div class="gallery-item">
+                    <img src="image/gallery-1.jpg" alt="展示图片1">
+                    <div class="gallery-overlay">
+                        <span>gallery-1.jpg</span>
+                    </div>
+                </div>
+                <!-- 占位图: gallery-2.jpg - 请替换为您的展示图片2 (建议尺寸: 400x300) -->
+                <div class="gallery-item">
+                    <img src="image/gallery-2.jpg" alt="展示图片2">
+                    <div class="gallery-overlay">
+                        <span>gallery-2.jpg</span>
+                    </div>
+                </div>
+                <!-- 占位图: gallery-3.jpg - 请替换为您的展示图片3 (建议尺寸: 400x300) -->
+                <div class="gallery-item">
+                    <img src="image/gallery-3.jpg" alt="展示图片3">
+                    <div class="gallery-overlay">
+                        <span>gallery-3.jpg</span>
+                    </div>
+                </div>
+                <!-- 占位图: gallery-4.jpg - 请替换为您的展示图片4 (建议尺寸: 400x300) -->
+                <div class="gallery-item">
+                    <img src="image/gallery-4.jpg" alt="展示图片4">
+                    <div class="gallery-overlay">
+                        <span>gallery-4.jpg</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 文章展示区域 -->
+        <section id="articles" class="section articles-section">
+            <h2 class="section-title">📝 文章分享</h2>
+            <p class="section-subtitle">记录我的思考与创作</p>
+            <div class="articles-grid">
+                <!-- 文章1 -->
+                <article class="article-card">
+                    <!-- 占位图: article-1.jpg - 请替换为文章1封面图 (建议尺寸: 600x400) -->
+                    <div class="article-cover">
+                        <img src="image/article-1.jpg" alt="文章封面1">
+                        <div class="article-cover-overlay">
+                            <span>article-1.jpg</span>
+                        </div>
+                    </div>
+                    <div class="article-content">
+                        <span class="article-date">2026年2月4日</span>
+                        <h3 class="article-title">文章标题1</h3>
+                        <p class="article-excerpt">
+                            这里是文章1的摘要内容，简要介绍文章的主题和要点...
+                        </p>
+                        <a href="#" class="read-more">阅读更多 →</a>
+                    </div>
+                </article>
+
+                <!-- 文章2 -->
+                <article class="article-card">
+                    <!-- 占位图: article-2.jpg - 请替换为文章2封面图 (建议尺寸: 600x400) -->
+                    <div class="article-cover">
+                        <img src="image/article-2.jpg" alt="文章封面2">
+                        <div class="article-cover-overlay">
+                            <span>article-2.jpg</span>
+                        </div>
+                    </div>
+                    <div class="article-content">
+                        <span class="article-date">2026年2月3日</span>
+                        <h3 class="article-title">文章标题2</h3>
+                        <p class="article-excerpt">
+                            这里是文章2的摘要内容，简要介绍文章的主题和要点...
+                        </p>
+                        <a href="#" class="read-more">阅读更多 →</a>
+                    </div>
+                </article>
+
+                <!-- 文章3 -->
+                <article class="article-card">
+                    <!-- 占位图: article-3.jpg - 请替换为文章3封面图 (建议尺寸: 600x400) -->
+                    <div class="article-cover">
+                        <img src="image/article-3.jpg" alt="文章封面3">
+                        <div class="article-cover-overlay">
+                            <span>article-3.jpg</span>
+                        </div>
+                    </div>
+                    <div class="article-content">
+                        <span class="article-date">2026年2月2日</span>
+                        <h3 class="article-title">文章标题3</h3>
+                        <p class="article-excerpt">
+                            这里是文章3的摘要内容，简要介绍文章的主题和要点...
+                        </p>
+                        <a href="#" class="read-more">阅读更多 →</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <p>✨ Made with 💖 | © 2026 My Space</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
