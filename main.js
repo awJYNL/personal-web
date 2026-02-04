@@ -8,15 +8,15 @@ class Particle {
         this.x = x;
         this.y = y;
         this.canvas = canvas;
-        
+
         // 随机大小
         this.size = Math.random() * 8 + 3;
         this.originalSize = this.size;
-        
+
         // 随机速度
         this.speedX = (Math.random() - 0.5) * 3;
         this.speedY = (Math.random() - 0.5) * 3 - 1; // 轻微向上飘
-        
+
         // 随机颜色（粉蓝紫渐变）
         const colors = [
             '#ff6b9d', // 粉色
@@ -28,14 +28,14 @@ class Particle {
             '#fbbf24', // 金色点缀
         ];
         this.color = colors[Math.floor(Math.random() * colors.length)];
-        
+
         // 生命周期
         this.life = 1;
         this.decay = Math.random() * 0.02 + 0.01;
-        
+
         // 形状 (0: 圆形, 1: 星形, 2: 心形)
         this.shape = Math.floor(Math.random() * 3);
-        
+
         // 旋转
         this.rotation = Math.random() * Math.PI * 2;
         this.rotationSpeed = (Math.random() - 0.5) * 0.1;
@@ -65,11 +65,11 @@ class Particle {
                 ctx.arc(0, 0, this.size, 0, Math.PI * 2);
                 ctx.fill();
                 break;
-            
+
             case 1: // 星形
                 this.drawStar(ctx, 0, 0, 5, this.size, this.size * 0.5);
                 break;
-            
+
             case 2: // 心形
                 this.drawHeart(ctx, 0, 0, this.size);
                 break;
@@ -90,7 +90,7 @@ class Particle {
 
         ctx.beginPath();
         ctx.moveTo(cx, cy - outerRadius);
-        
+
         for (let i = 0; i < spikes; i++) {
             x = cx + Math.cos(rot) * outerRadius;
             y = cy + Math.sin(rot) * outerRadius;
@@ -102,7 +102,7 @@ class Particle {
             ctx.lineTo(x, y);
             rot += step;
         }
-        
+
         ctx.lineTo(cx, cy - outerRadius);
         ctx.closePath();
         ctx.fill();
@@ -112,11 +112,11 @@ class Particle {
         ctx.beginPath();
         const topCurveHeight = size * 0.3;
         ctx.moveTo(x, y + topCurveHeight);
-        
+
         // 左边曲线
         ctx.bezierCurveTo(
-            x, y, 
-            x - size, y, 
+            x, y,
+            x - size, y,
             x - size, y + topCurveHeight
         );
         ctx.bezierCurveTo(
@@ -124,7 +124,7 @@ class Particle {
             x, y + (size + topCurveHeight) / 2,
             x, y + size
         );
-        
+
         // 右边曲线
         ctx.bezierCurveTo(
             x, y + (size + topCurveHeight) / 2,
@@ -136,7 +136,7 @@ class Particle {
             x, y,
             x, y + topCurveHeight
         );
-        
+
         ctx.closePath();
         ctx.fill();
     }
@@ -155,21 +155,21 @@ class ParticleSystem {
         this.mouseY = 0;
         this.isMouseMoving = false;
         this.lastMouseMove = 0;
-        
+
         this.init();
     }
 
     init() {
         this.resize();
         window.addEventListener('resize', () => this.resize());
-        
+
         // 鼠标移动事件
         document.addEventListener('mousemove', (e) => {
             this.mouseX = e.clientX;
             this.mouseY = e.clientY;
             this.isMouseMoving = true;
             this.lastMouseMove = Date.now();
-            
+
             // 每次移动产生粒子
             this.createParticles(e.clientX, e.clientY, 2);
         });
@@ -199,7 +199,7 @@ class ParticleSystem {
         for (let i = 0; i < count; i++) {
             this.particles.push(new Particle(x, y, this.canvas));
         }
-        
+
         // 限制粒子数量以保持性能
         if (this.particles.length > 200) {
             this.particles = this.particles.slice(-200);
@@ -226,7 +226,7 @@ class ParticleSystem {
 // 平滑滚动导航
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
@@ -267,12 +267,12 @@ function initScrollAnimations() {
 // 图片加载失败时显示占位符
 function initImagePlaceholders() {
     document.querySelectorAll('img').forEach(img => {
-        img.addEventListener('error', function() {
+        img.addEventListener('error', function () {
             this.style.background = 'linear-gradient(135deg, #ff6b9d33, #00d4ff33)';
             this.style.display = 'flex';
             this.style.alignItems = 'center';
             this.style.justifyContent = 'center';
-            
+
             // 创建占位符文本
             const placeholder = document.createElement('div');
             placeholder.style.cssText = `
@@ -286,12 +286,54 @@ function initImagePlaceholders() {
                 padding: 1rem;
             `;
             placeholder.innerHTML = `📷 请替换<br><strong>${this.src.split('/').pop()}</strong>`;
-            
+
             if (this.parentElement) {
                 this.parentElement.style.position = 'relative';
                 this.parentElement.appendChild(placeholder);
             }
         });
+    });
+}
+
+// 图片灯箱功能
+function initLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.querySelector('.lightbox-close');
+
+    // 为所有画廊图片添加点击事件
+    document.querySelectorAll('.gallery-item img').forEach(img => {
+        img.style.cursor = 'zoom-in';
+        img.addEventListener('click', (e) => {
+            e.stopPropagation(); // 防止触发粒子效果
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // 禁止背景滚动
+        });
+    });
+
+    // 关闭灯箱
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = ''; // 恢复滚动
+    }
+
+    // 点击关闭按钮关闭
+    closeBtn.addEventListener('click', closeLightbox);
+
+    // 点击背景关闭
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
+
+    // ESC 键关闭
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+            closeLightbox();
+        }
     });
 }
 
@@ -301,7 +343,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initSmoothScroll();
     initScrollAnimations();
     initImagePlaceholders();
-    
+    initLightbox();
+
     console.log('✨ 个人品牌网站已加载！');
     console.log('📝 请替换 image/ 文件夹中的占位图片');
 });
