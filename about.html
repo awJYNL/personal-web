@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="关于我 - 详细的个人介绍">
+    <title>关于我 | 任什么伟？</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- 粒子效果画布 -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">✨ My Space</a>
+        <ul class="nav-links">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="#about">关于我</a></li>
+        </ul>
+    </nav>
+
+    <!-- 主要内容区 -->
+    <main>
+        <!-- 关于我详情区域 -->
+        <section id="about" class="section about-section">
+            <h2 class="section-title">🌟 关于我</h2>
+            <p class="section-subtitle">了解更多关于我的故事</p>
+
+            <div class="about-detail-container">
+                <!-- 个人简介卡片 -->
+                <div class="about-card">
+                    <div class="card-header">
+                        <span class="card-icon">👤</span>
+                        <h3>个人简介</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>你好！我是 <strong>awa</strong>，欢迎来到我的个人空间。</p>
+                        <p>这里是您可以详细介绍自己的地方。可以写下您的成长经历、人生态度、价值观等内容。让访客更深入地了解您是一个怎样的人。</p>
+                    </div>
+                </div>
+
+                <!-- 兴趣爱好卡片 -->
+                <div class="about-card">
+                    <div class="card-header">
+                        <span class="card-icon">💖</span>
+                        <h3>兴趣爱好</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="hobby-tags">
+                            <span class="hobby-tag">🎮 游戏</span>
+                            <span class="hobby-tag">📚 阅读</span>
+                            <span class="hobby-tag">🎵 音乐</span>
+                            <span class="hobby-tag">💻 编程</span>
+                            <span class="hobby-tag">📷 摄影</span>
+                            <span class="hobby-tag">✈️ 旅行</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 技能展示卡片 -->
+                <div class="about-card">
+                    <div class="card-header">
+                        <span class="card-icon">⚡</span>
+                        <h3>技能特长</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="skill-item">
+                            <span class="skill-name">技能一</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">技能二</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 70%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">技能三</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 60%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 联系方式卡片 -->
+                <div class="about-card">
+                    <div class="card-header">
+                        <span class="card-icon">📬</span>
+                        <h3>联系方式</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="contact-list">
+                            <div class="contact-item">
+                                <span class="contact-icon">💬</span>
+                                <span>QQ: 380768137</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">📧</span>
+                                <span>Email: 380768137@qq.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <a href="https://github.com/awJYNL" target="_blank" class="contact-link">
+                                    <span class="contact-icon">💼</span>
+                                    <span>GitHub: awJYNL</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <p>✨ Made with 💖 | © 2026 My Space</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

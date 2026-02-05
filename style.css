@@ -65,6 +65,7 @@ body {
 .nav-brand {
     font-size: 1.5rem;
     font-weight: 700;
+    text-decoration: none;
     background: linear-gradient(135deg, var(--primary-pink), var(--primary-purple));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -374,6 +375,165 @@ body {
     background: var(--card-bg);
     color: var(--text-secondary);
     backdrop-filter: blur(10px);
+}
+
+/* ===== 关于我详情页样式 ===== */
+.about-detail-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.about-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: var(--shadow-soft);
+    backdrop-filter: blur(10px);
+    transition: var(--transition);
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.about-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.about-card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.about-card:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.about-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid rgba(255, 107, 157, 0.2);
+}
+
+.card-icon {
+    font-size: 1.5rem;
+}
+
+.card-header h3 {
+    font-size: 1.3rem;
+    background: linear-gradient(135deg, var(--primary-pink), var(--primary-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.card-content p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.card-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* 兴趣爱好标签 */
+.hobby-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.hobby-tag {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, rgba(255, 107, 157, 0.1), rgba(196, 113, 237, 0.1));
+    border: 1px solid rgba(255, 107, 157, 0.3);
+    border-radius: 50px;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    transition: var(--transition);
+}
+
+.hobby-tag:hover {
+    background: linear-gradient(135deg, var(--primary-pink), var(--primary-purple));
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* 技能进度条 */
+.skill-item {
+    margin-bottom: 1.25rem;
+}
+
+.skill-item:last-child {
+    margin-bottom: 0;
+}
+
+.skill-name {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.skill-bar {
+    height: 10px;
+    background: rgba(255, 107, 157, 0.15);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary-pink), var(--primary-purple));
+    border-radius: 10px;
+    transition: width 1s ease-out;
+}
+
+/* 联系方式列表 */
+.contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 107, 157, 0.05);
+    border-radius: var(--border-radius-sm);
+    color: var(--text-primary);
+    transition: var(--transition);
+}
+
+.contact-item:hover {
+    background: rgba(255, 107, 157, 0.1);
+    transform: translateX(5px);
+}
+
+.contact-icon {
+    font-size: 1.2rem;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: var(--text-primary);
+    width: 100%;
+}
+
+.contact-link:hover {
+    color: var(--primary-purple);
 }
 
 /* ===== 响应式设计 ===== */
