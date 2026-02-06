@@ -295,44 +295,106 @@ function initImagePlaceholders() {
     });
 }
 
-// 图片灯箱功能
+// 图片灯箱功能（支持多图轮播）
 function initLightbox() {
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const closeBtn = document.querySelector('.lightbox-close');
+    const prevBtn = document.querySelector('.lightbox-prev');
+    const nextBtn = document.querySelector('.lightbox-next');
+    const counter = document.getElementById('lightbox-counter');
+
+    let currentImages = [];
+    let currentIndex = 0;
+
+    // 更新显示的图片
+    function showImage(index) {
+        if (currentImages.length === 0) return;
+        currentIndex = index;
+        if (currentIndex < 0) currentIndex = currentImages.length - 1;
+        if (currentIndex >= currentImages.length) currentIndex = 0;
+        
+        lightboxImg.src = currentImages[currentIndex];
+        
+        // 更新计数器
+        if (currentImages.length > 1) {
+            counter.textContent = `${currentIndex + 1} / ${currentImages.length}`;
+            counter.style.display = 'block';
+            prevBtn.style.display = 'block';
+            nextBtn.style.display = 'block';
+        } else {
+            counter.style.display = 'none';
+            prevBtn.style.display = 'none';
+            nextBtn.style.display = 'none';
+        }
+    }
 
     // 为所有画廊图片添加点击事件
-    document.querySelectorAll('.gallery-item img').forEach(img => {
+    document.querySelectorAll('.gallery-item').forEach(item => {
+        const img = item.querySelector('img');
+        if (!img) return;
+        
         img.style.cursor = 'zoom-in';
         img.addEventListener('click', (e) => {
-            e.stopPropagation(); // 防止触发粒子效果
-            lightboxImg.src = img.src;
-            lightboxImg.alt = img.alt;
+            e.stopPropagation();
+            
+            // 检查是否有多图数据
+            const imagesData = item.getAttribute('data-images');
+            if (imagesData) {
+                try {
+                    currentImages = JSON.parse(imagesData);
+                } catch {
+                    currentImages = [img.src];
+                }
+            } else {
+                currentImages = [img.src];
+            }
+            
+            currentIndex = 0;
+            showImage(0);
             lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden'; // 禁止背景滚动
+            document.body.style.overflow = 'hidden';
         });
+    });
+
+    // 上一张
+    prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showImage(currentIndex - 1);
+    });
+
+    // 下一张
+    nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showImage(currentIndex + 1);
     });
 
     // 关闭灯箱
     function closeLightbox() {
         lightbox.classList.remove('active');
-        document.body.style.overflow = ''; // 恢复滚动
+        document.body.style.overflow = '';
+        currentImages = [];
+        currentIndex = 0;
     }
 
-    // 点击关闭按钮关闭
     closeBtn.addEventListener('click', closeLightbox);
 
-    // 点击背景关闭
     lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) {
             closeLightbox();
         }
     });
 
-    // ESC 键关闭
+    // 键盘控制
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        if (!lightbox.classList.contains('active')) return;
+        
+        if (e.key === 'Escape') {
             closeLightbox();
+        } else if (e.key === 'ArrowLeft') {
+            showImage(currentIndex - 1);
+        } else if (e.key === 'ArrowRight') {
+            showImage(currentIndex + 1);
         }
     });
 }

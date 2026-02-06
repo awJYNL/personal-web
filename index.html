@@ -38,14 +38,10 @@
                 <div class="about-content">
                     <h1 class="greeting">你好，我是 <span class="highlight">awa</span> 👋</h1>
                     <p class="tagline">✨ 少干多拿，不劳而获，那才是我的人生理想 ✨</p>
-                    <p class="bio">
-                        这里是您的个人简介。可以介绍您的职业、爱好、技能或者任何您想分享的内容。
-                        让访客更好地了解您是谁，以及您热爱什么。
-                    </p>
                     <div class="social-links">
-                        <span class="social-btn">💬 QQ: 380768137</span>
-                        <span class="social-btn">📧 Email: 380768137@qq.com</span>
-                        <a href="https://github.com/awJYNL" class="social-btn" target="_blank">💼 GitHub</a>
+                        <span class="social-btn">💬 QQ</span>
+                        <span class="social-btn">📧 Email</span>
+                        <span class="social-btn">💼 GitHub</span>
                     </div>
                 </div>
             </div>
@@ -56,21 +52,25 @@
             <h2 class="section-title">🎨 任什么伟</h2>
             <p class="section-subtitle">精选展示</p>
             <div class="gallery-grid">
-                <!-- 占位图: renwei1.jpg - 请替换为您的图片 (建议尺寸: 400x300) -->
-                <div class="gallery-item">
-                    <img src="image/renwei1.jpg" alt="展示图片1">
+                <!-- renwei1 - 任强伟 -->
+                <div class="gallery-item" data-images='["image/renwei1.png", "image/renwei11.png"]'>
+                    <img src="image/renwei1.png" alt="任强伟">
+                    <div class="gallery-overlay"><span>任强伟</span></div>
                 </div>
-                <!-- 占位图: renwei2.jpg - 请替换为您的图片 (建议尺寸: 400x300) -->
-                <div class="gallery-item">
-                    <img src="image/renwei2.jpg" alt="展示图片2">
+                <!-- renwei2 - 任阳伟 -->
+                <div class="gallery-item" data-images='["image/renwei2.png", "image/renwei22.png"]'>
+                    <img src="image/renwei2.png" alt="任阳伟">
+                    <div class="gallery-overlay"><span>任阳伟</span></div>
                 </div>
-                <!-- 占位图: renwei3.jpg - 请替换为您的图片 (建议尺寸: 400x300) -->
-                <div class="gallery-item">
-                    <img src="image/renwei3.jpg" alt="展示图片3">
+                <!-- renwei3 - 任夯伟 -->
+                <div class="gallery-item" data-images='["image/renwei3.png", "image/renwei33.png"]'>
+                    <img src="image/renwei3.png" alt="任夯伟">
+                    <div class="gallery-overlay"><span>任夯伟</span></div>
                 </div>
-                <!-- 占位图: renwei4.jpg - 请替换为您的图片 (建议尺寸: 400x300) -->
-                <div class="gallery-item">
-                    <img src="image/renwei4.jpg" alt="展示图片4">
+                <!-- renwei4 - 任佳伟 -->
+                <div class="gallery-item" data-images='["image/renwei4.png", "image/renwei44.png"]'>
+                    <img src="image/renwei4.png" alt="任佳伟">
+                    <div class="gallery-overlay"><span>任佳伟</span></div>
                 </div>
             </div>
         </section>
@@ -102,7 +102,10 @@
     <!-- 图片灯箱 -->
     <div id="lightbox" class="lightbox">
         <span class="lightbox-close">&times;</span>
+        <span class="lightbox-prev">&#10094;</span>
         <img class="lightbox-img" id="lightbox-img" src="" alt="放大图片">
+        <span class="lightbox-next">&#10095;</span>
+        <div class="lightbox-counter" id="lightbox-counter"></div>
     </div>
 
     <script src="main.js"></script>
